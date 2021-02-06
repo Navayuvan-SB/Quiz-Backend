@@ -4,7 +4,7 @@ const { resultValidation } = require("../../services/validation");
 // Get all results
 const getAllResultsController = async (req, res) => {
   try {
-    const results = await Result.find();
+    const results = await Result.find(req.query);
     res.json(results);
   } catch (error) {
     res.status(400).send(error.message);
