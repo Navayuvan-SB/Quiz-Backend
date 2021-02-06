@@ -78,8 +78,23 @@ const passwordValidation = (data) => {
   return schema.validate(data);
 };
 
+// Result Validation
+const resultValidation = (data) => {
+  const schema = joi.object({
+    userId: joi.string().required(),
+    noOfCorrectAnswers: joi.number().required(),
+    noOfWrongAnswers: joi.number().required(),
+    noOfTotalQuestions: joi.number().required(),
+    timeTaken: joi.string().required(),
+    quizId: joi.string().required(),
+  });
+
+  return schema.validate(data);
+};
+
 // Exports
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
 module.exports.userValidation = userValidation;
 module.exports.passwordValidation = passwordValidation;
+module.exports.resultValidation = resultValidation;

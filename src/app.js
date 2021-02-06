@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 // Route imports
 const userRoute = require("./components/user/route");
 const quizRoute = require("./components/quiz/route");
+const resultRoute = require("./components/result/route");
 
 // Express instance
 const app = express();
@@ -28,6 +29,7 @@ app.use(express.json());
 // Routes
 app.use("/user", userRoute);
 app.use("/quiz", quizRoute);
+app.use("/result", resultRoute);
 
 // Listen
 app.listen(3000, () => {
