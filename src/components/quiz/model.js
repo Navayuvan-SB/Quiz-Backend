@@ -1,26 +1,25 @@
 // Import statements
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
+const quizSchema = new mongoose.Schema({
+  questions: {
+    type: Array,
     required: true,
+  },
+  difficulty: {
+    type: String,
     min: 6,
     max: 255,
   },
-  email: {
+  type: {
     type: String,
-    required: true,
     min: 6,
     max: 255,
   },
-  password: {
+  category: {
     type: String,
-    required: true,
-    min: 6,
-    max: 255,
   },
-  role: {
+  createdBy: {
     type: String,
     required: true,
   },
@@ -30,4 +29,4 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("quizzes", quizSchema);
