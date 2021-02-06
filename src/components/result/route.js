@@ -2,7 +2,7 @@ const { userValidation } = require("../../services/validation");
 
 // Import statements
 const router = require("express").Router();
-const { userVerification } = require("../../services/jwtVerification");
+const { userVerification, adminVerification } = require("../../services/jwtVerification");
 const {
   addAResultController,
   getAResultController,
@@ -13,10 +13,10 @@ const {
 router.post("/", userVerification, addAResultController);
 
 // Get a result
-router.get("/:resultId", userVerification, getAResultController);
+router.get("/:resultId", adminVerification, getAResultController);
 
 // Get all results
-router.get("/", userVerification, getAllResultsController);
+router.get("/", adminVerification, getAllResultsController);
 
 // Exports
 module.exports = router;
