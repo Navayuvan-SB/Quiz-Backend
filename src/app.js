@@ -42,7 +42,7 @@ app.use("/quiz", quizRoute);
 app.use("/result", resultRoute);
 
 // Port
-const PORT = env.process.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Listen
 app.listen(PORT, () => {
