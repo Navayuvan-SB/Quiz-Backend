@@ -41,7 +41,10 @@ app.use("/user", userRoute);
 app.use("/quiz", quizRoute);
 app.use("/result", resultRoute);
 
+// Port
+const PORT = env.process.PORT || 3000;
+
 // Listen
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server up and running at 3000");
 });
