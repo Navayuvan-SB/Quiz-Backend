@@ -87,6 +87,7 @@ const resultValidation = (data) => {
     noOfTotalQuestions: joi.number().required(),
     timeTaken: joi.string().required(),
     quizId: joi.string().required(),
+    quizName: joi.string().required(),
   });
 
   return schema.validate(data);
