@@ -48,7 +48,7 @@ module.exports.userVerification = async function (req, res, next) {
   }
 };
 
-module.exports.adminVerification = function (req, res, next) {
+module.exports.adminVerification = async function (req, res, next) {
   const token = req.header("auth-token");
 
   if (!token) {
@@ -63,7 +63,7 @@ module.exports.adminVerification = function (req, res, next) {
     const verified = jwt.verify(token, process.env.TOKEN_SECRET);
     req.user = verified;
 
-    const user = User.findById(req.user.id);
+    const user = await User.findById(req.user.id);
 
     if (user.role === "admin") {
       next();
