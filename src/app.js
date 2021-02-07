@@ -31,6 +31,11 @@ mongoose
 // Middlewares
 app.use(express.json());
 
+// Mock Request
+app.get("/", (req, res) => {
+  res.send("<h1>API is working fine!</h1>");
+});
+
 // Routes
 app.use("/user", userRoute);
 app.use("/quiz", quizRoute);
