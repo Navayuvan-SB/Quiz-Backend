@@ -19,13 +19,14 @@ app.use(cors());
 dotenv.config();
 
 // Connect Mongoose
-mongoose.connect(
-  process.env.DB_CONNECT,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to DB");
-  }
-);
+mongoose.Promise = global.Promise;
+mongoose
+  .connect(process.env.DB_CONNECT, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((res) => console.log("Connected to DB"))
+  .catch((err) => console.log(err));
 
 // Middlewares
 app.use(express.json());
