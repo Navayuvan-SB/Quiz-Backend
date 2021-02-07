@@ -16,10 +16,19 @@ const quizSchema = new mongoose.Schema({
     min: 6,
     max: 255,
   },
-  category: {
+  categoryId: {
     type: String,
+    required: true,
+  },
+  categoryName: {
+    type: String,
+    required: true,
   },
   createdBy: {
+    type: String,
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },
