@@ -85,7 +85,10 @@ const loginController = async (req, res) => {
     return res.status(400).send("Password incorrect");
   }
 
-  const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET);
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    process.env.TOKEN_SECRET
+  );
 
   res.header("auth-token", token).send({
     "auth-token": token,
