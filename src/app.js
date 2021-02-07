@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 // Route imports
 const userRoute = require("./components/user/route");
@@ -10,6 +11,9 @@ const resultRoute = require("./components/result/route");
 
 // Express instance
 const app = express();
+
+// Cors config
+app.use(cors());
 
 // dotenv config
 dotenv.config();
